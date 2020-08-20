@@ -30,7 +30,10 @@ weatherForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const location = search.value
 
-    fetch('http://localhost:3000/weather?address='+location).then((response) => {
+    // Comment out localhost when pushing to heroku
+    // fetch('http://localhost:3000/weather?address='+location).then((response) => {
+
+    fetch('/weather?address='+location).then((response) => {
         messageOne.textContent = 'Loading...'
         response.json().then((data) => {
             if (data.error) {
